@@ -7,7 +7,7 @@ export function loadConfig(env = process.env) {
   return {
     port: positiveInt(env.PORT, 8787),
     // Comma-separated browser origins allowed to call the API; "*" allows any.
-    allowedOrigins: (env.JAM_ALLOWED_ORIGINS ?? "http://localhost:5173,http://localhost:4173").split(",").map(origin => origin.trim()).filter(Boolean),
+    allowedOrigins: ["*"],
     maxParticipants: positiveInt(env.JAM_MAX_PARTICIPANTS, 20),
     // A room with nobody connected for this long expires.
     roomIdleTtlMs: positiveInt(env.JAM_ROOM_IDLE_TTL_MS, 30 * 60_000),
